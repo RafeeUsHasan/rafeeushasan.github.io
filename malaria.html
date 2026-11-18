@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Malaria Case Series — Rafee Us Hasan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  :root{--s1:#00897b;--s2:#e0703e;--s3:#9aa5b4}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:8px 0 10px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .stat b{display:block;font:500 40px/1 Newsreader,serif;color:var(--ink)}
+  .stat span{font-size:14px;color:var(--muted)}
+  .callout{background:var(--coral-soft);border-left:3px solid var(--coral);border-radius:0 10px 10px 0;padding:14px 18px;font-size:15px;color:var(--ink);margin:18px 0 0}
+  .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .flow>div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px;position:relative}
+  .flow .n{font:500 28px Newsreader,serif;color:var(--teal)}
+  .flow h4{font-size:20px;margin:4px 0 6px}.flow p{margin:0;font-size:15px}
+  .panel{display:grid;grid-template-columns:1fr 260px;gap:32px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:30px;align-items:start}
+  .panel h3{font-size:24px;margin:0 0 4px}
+  .panel .lead{font-size:15px;color:var(--muted);margin:0 0 22px}
+  .side{background:#f5f4f0;border-radius:12px;padding:20px}
+  .side b{display:block;font:500 40px/1 Newsreader,serif;color:var(--ink);margin-bottom:6px}
+  .side p{margin:0 0 14px;font-size:14px}
+  .side p:last-child{margin:0}
+  .caveat{font-size:13px;color:var(--muted);margin-top:16px;border-top:1px solid var(--line);padding-top:12px}
+  .ctitle{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin:0 0 10px}
+  /* vertical bars */
+  .vbars{display:flex;align-items:flex-end;gap:10px;height:210px;border-bottom:1px solid #d9d6cf;padding:0 4px}
+  .vb{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;cursor:default}
+  .vb .v{font:500 13px Inter;color:var(--ink);margin-bottom:6px}
+  .vb i{display:block;width:72%;max-width:56px;background:var(--s1);border-radius:4px 4px 0 0;transition:opacity .15s}
+  .vb:hover i{opacity:.75}
+  .vlabels{display:flex;gap:10px;padding:8px 4px 0}
+  .vlabels span{flex:1;text-align:center;font-size:12px;color:var(--muted)}
+  .axisnote{font-size:12px;color:var(--muted);text-align:center;margin-top:6px}
+  /* horizontal bars */
+  .hbars{display:grid;gap:10px}
+  .hb{display:grid;grid-template-columns:140px 1fr 64px;align-items:center;gap:12px;font-size:14px;cursor:default}
+  .hb .track{background:#efede8;border-radius:4px;height:18px;overflow:hidden}
+  .hb .fill{height:100%;background:var(--s1);border-radius:0 4px 4px 0}
+  .hb:hover .fill{opacity:.75}
+  .hb .val{font-weight:500;color:var(--ink);text-align:right}
+  .hb .lab{color:var(--body)}
+  /* stacked */
+  .stack{display:flex;gap:2px;height:44px;border-radius:6px;overflow:hidden;margin:6px 0 14px}
+  .stack div{height:100%;display:flex;align-items:center;padding-left:12px;color:#fff;font:600 14px Inter;cursor:default}
+  .stack div:hover{opacity:.85}
+  .legend{display:flex;flex-wrap:wrap;gap:18px;font-size:14px}
+  .legend span{display:inline-flex;align-items:center;gap:8px}
+  .legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .duo{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .tiles3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .tiles3 div{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px}
+  .tiles3 b{display:block;font:500 38px/1 Newsreader,serif;color:var(--ink)}
+  .tiles3 span{display:block;font-size:15px;color:var(--ink);margin-top:8px}
+  .tiles3 em{font-style:normal;font-size:13px;color:var(--muted)}
+  .lim{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .lim div{background:#f5f4f0;border-radius:14px;padding:20px}
+  .lim h4{font-size:19px;margin:0 0 6px}.lim p{margin:0;font-size:15px}
+  .next{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+  .next ol{margin:0;padding-left:20px}.next li{margin:8px 0;font-size:16px}
+  .next h4{font-size:20px;margin:0 0 4px}
+  details.tbl{margin-top:14px;font-size:14px}
+  details.tbl summary{cursor:pointer;color:var(--teal);font-weight:500;font-size:13px}
+  details.tbl table{border-collapse:collapse;margin-top:8px;min-width:260px}
+  details.tbl td,details.tbl th{border-top:1px solid var(--line);padding:6px 16px 6px 0;text-align:left}
+  details.tbl th{font-weight:600;color:var(--ink)}
+  #tip{position:fixed;pointer-events:none;background:var(--ink);color:#fff;font:500 13px Inter;padding:7px 10px;border-radius:6px;opacity:0;transition:opacity .1s;z-index:50;white-space:nowrap}
+  .source{font-size:14px;color:var(--muted);max-width:820px}
+  @media (max-width:900px){.stats{grid-template-columns:1fr 1fr}.flow,.panel,.duo,.tiles3,.lim,.next{grid-template-columns:1fr}.hb{grid-template-columns:110px 1fr 48px}}
+</style>
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="name" href="index.html">Rafee Us Hasan</a>
+  <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+  <nav id="nav"><a href="index.html">Home</a><a href="research.html" class="on">Research</a><a href="medicine.html">Medicine &amp; Service</a><a href="honors.html">Honors</a><a href="poetry.html">Poetry</a></nav>
+</div></div>
+<div class="wrap">
+  <header class="pagehead">
+    <p class="eyebrow">Research · Field dataset · Bandarban hills, 2022 – 2025</p>
+    <h1>Malaria Cases in Hill-Area Camps</h1>
+    <p>A descriptive analysis of 54 handwritten medical forms from malaria-positive patients, collected during an active anti-malaria program and transcribed into a structured dataset.</p>
+  </header>
+
+  <section style="padding-top:40px">
+    <div class="stats">
+      <div class="stat"><b>54</b><span>malaria-positive patient records</span></div>
+      <div class="stat"><b>17</b><span>camps represented</span></div>
+      <div class="stat"><b>28.5</b><span>median age, years</span></div>
+      <div class="stat"><b>33</b><span>with more than one positive test recorded</span></div>
+    </div>
+    <p class="callout"><b>Read this first:</b> every person in this dataset tested positive. There is no uninfected comparison group and no population denominator, so these figures describe the case series. They do not estimate malaria incidence or risk.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>From handwritten forms to analysis</h2></div>
+    <div class="flow">
+      <div><div class="n">1</div><h4>Source</h4><p>54 scanned handwritten Bangla forms, one per malaria-positive patient. Names were excluded during transcription.</p></div>
+      <div><div class="n">2</div><h4>Structured data</h4><p>20 columns, including age, ICT result, camp, time in the hill area, and prevention measures.</p></div>
+      <div><div class="n">3</div><h4>Descriptive analysis</h4><p>Counts, proportions, distributions and plots.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Patient profile</h2></div>
+    <div class="panel">
+      <div>
+        <h3>Most records are from personnel under 35</h3>
+        <p class="lead">Age is available for all 54 records. All recorded patients are male.</p>
+        <div class="chart" data-chart="age"></div>
+      </div>
+      <div class="side"><b>72%</b><p>39 of 54 patients were under 35.</p><p><b style="font-size:28px;display:inline">32</b> records listed the rank "Sepoy".</p><p>Age range 21–54 years.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Exposure context</h2></div>
+    <div class="panel">
+      <div>
+        <h3>A four-year median stay in the hill area</h3>
+        <p class="lead">Time living in a hill area, not an individual measure of malaria exposure.</p>
+        <div class="chart" data-chart="duration"></div>
+      </div>
+      <div class="side"><b>48</b><p>median months (4.0 years)</p><p>Observed range: 24–147 months.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>ICT findings</h2></div>
+    <div class="panel" style="grid-template-columns:1fr">
+      <div>
+        <h3>P. vivax is ticked more often than P. falciparum</h3>
+        <p class="lead">Three mutually exclusive categories, derived from the two ICT indicator columns on each form.</p>
+        <div class="stack" id="ict"></div>
+        <div class="legend">
+          <span><i style="background:var(--s1)"></i>P. vivax only: 34 (63.0%)</span>
+          <span><i style="background:var(--s2)"></i>P. falciparum only: 19 (35.2%)</span>
+          <span><i style="background:var(--s3)"></i>Both ticked: 1 (1.9%)</span>
+        </div>
+        <p class="caveat">ICT ticks describe recorded test results. A form with both boxes ticked is counted once, in "Both".</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Testing history</h2></div>
+    <div class="panel">
+      <div>
+        <h3>61% recorded more than one positive test</h3>
+        <p class="lead">Number of positive tests recorded per patient.</p>
+        <div class="chart" data-chart="tests"></div>
+      </div>
+      <div class="side"><b>33 / 54</b><p>had two or more positive tests.</p><p>Maximum recorded: 9 tests.</p></div>
+    </div>
+    <p class="callout">Without test dates, repeat counts cannot distinguish reinfection, relapse, persistence or follow-up testing.</p>
+
+    <div class="panel" style="grid-template-columns:1fr;margin-top:18px">
+      <div>
+        <h3>Multiple positive tests appear in every tenure group</h3>
+        <p class="lead">Exploratory, for context only. Each denominator is the malaria-positive records within that duration band.</p>
+        <div class="chart" data-chart="tenure"></div>
+        <p class="caveat">These percentages do not estimate the probability of contracting malaria at different exposure durations.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Where the records came from</h2></div>
+    <div class="panel" style="grid-template-columns:1fr">
+      <div>
+        <h3>The case series spans 17 camps</h3>
+        <p class="lead">Number of forms from each camp, not camp-level malaria incidence. The largest single camp contributed 6 of 54 records. Camp names are withheld.</p>
+        <div class="chart" data-chart="camps"></div>
+      </div>
+    </div>
+    <div class="panel" style="grid-template-columns:1fr;margin-top:18px">
+      <div>
+        <h3>Recorded camp altitude ranges from 2 to 146 m</h3>
+        <p class="lead">Altitude is a camp-level value, assigned to each person at that camp.</p>
+        <div class="duo">
+          <div><p class="ctitle">Number of camps</p><div class="chart" data-chart="altCamps"></div></div>
+          <div><p class="ctitle">Number of patient records</p><div class="chart" data-chart="altPatients"></div></div>
+        </div>
+        <p class="caveat">A count of records at an altitude is not a malaria rate. Camp populations and observation periods are unknown.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Mosquito prevention</h2></div>
+    <div class="panel" style="grid-template-columns:1fr">
+      <div>
+        <h3>Nearly everyone reported all four measures</h3>
+        <p class="lead">A ticked measure on the patient form, not observed or verified use.</p>
+        <div class="chart" data-chart="prevention"></div>
+        <p class="caveat">This is not evidence of the effectiveness of any measure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Care and outcomes</h2></div>
+    <div class="tiles3">
+      <div><b>54 / 54</b><span>first treated at an MI room</span><em>100% of records</em></div>
+      <div><b>0 / 54</b><span>hospitalized</span><em>none recorded</em></div>
+      <div><b>0 / 54</b><span>cerebral malaria</span><em>none recorded</em></div>
+    </div>
+    <p class="callout">"None recorded" describes this small, selected case series. It must not be read as zero clinical risk.</p>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>What these records can and cannot tell us</h2></div>
+    <div class="lim">
+      <div><h4>Case-only sample</h4><p>Without people who tested negative, the data cannot estimate prevalence or identify protective risk factors.</p></div>
+      <div><h4>No test dates</h4><p>A high positive-test count does not prove recurrent, independent malaria episodes.</p></div>
+      <div><h4>Limited clinical variation</h4><p>Every record lists MI-room treatment, and none records admission or cerebral malaria.</p></div>
+      <div><h4>Camp-level altitude</h4><p>Altitude repeats for each camp and should not be analyzed as an individual-level exposure.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>A starting point</h2></div>
+    <div class="next">
+      <div><h4>What stands out</h4><ol><li>P. vivax only was the largest ICT category (34 of 54).</li><li>Thirty-three people had multiple positive tests recorded.</li><li>Prevention ticks were nearly universal, even though every case was positive.</li></ol></div>
+      <div><h4>What to collect next</h4><ol><li>A denominator: all personnel screened, including negatives.</li><li>Test dates, treatment dates and episode identifiers.</li><li>Camp population, individual exposure and verified prevention use.</li></ol></div>
+    </div>
+    <p class="callout" style="background:var(--teal-soft);border-color:var(--teal)"><b>Next step:</b> a comparative, time-resolved study.</p>
+  </section>
+
+  <section style="padding-top:56px">
+    <p class="source"><b>Data notes.</b> Percentages use n = 54 unless stated otherwise. "Both ticked" means both ICT indicator fields equal 1. Durations are in months. Altitude is assigned at the camp level. All charts are derived from the structured dataset; individual records are not published.</p>
+    <p><a href="research.html">← Back to research</a></p>
+  </section>
+
+  <footer>© 2026 Rafee Us Hasan · Goleta, California · rafeeushasan@gmail.com</footer>
+</div>
+<div id="tip"></div>
+
+<script>
+const N = 54;
+const DATA = {
+  age:       {type:'v', unit:'records', axis:'Age (years)', rows:[['20–24',13],['25–29',15],['30–34',11],['35–39',3],['40–44',7],['45–49',2],['50–54',3]]},
+  duration:  {type:'v', unit:'records', axis:'Time in the hill area', rows:[['<3y',1],['3–<4y',17],['4–<5y',18],['5–<6y',5],['6–<8y',8],['8y+',5]]},
+  tests:     {type:'v', unit:'patients', axis:'Positive tests recorded', rows:[['1',21],['2',20],['3',7],['4',1],['5',2],['6',1],['8',1],['9',1]]},
+  tenure:    {type:'h', pct:true, rows:[['<4 years',9,18],['4–<6 years',14,23],['6+ years',10,13]]},
+  camps:     {type:'h', unit:'records', rows:[['Camp A',6],['Camp B',5],['Camp C',5],['Camp D',4],['Camp E',4],['Camp F',4],['Camp G',4],['Camp H',4],['Camp I',4],['Other 8 camps',14]]},
+  altCamps:  {type:'h', unit:'camps', max:9, rows:[['0–39 m',9],['40–79 m',3],['80–119 m',3],['120+ m',2]]},
+  altPatients:{type:'h', unit:'records', max:24, rows:[['0–39 m',24],['40–79 m',10],['80–119 m',14],['120+ m',6]]},
+  prevention:{type:'h', of:N, rows:[['Mosquito net',54],['Mosquito coil',54],['Dhup / incense',54],['Odomos cream',52]]}
+};
+const tip = document.getElementById('tip');
+function bindTip(el, text){
+  el.addEventListener('mousemove', e => { tip.textContent = text; tip.style.opacity = 1; tip.style.left = (e.clientX + 14) + 'px'; tip.style.top = (e.clientY - 34) + 'px'; });
+  el.addEventListener('mouseleave', () => tip.style.opacity = 0);
+}
+function table(rows, head){
+  const d = document.createElement('details'); d.className = 'tbl';
+  d.innerHTML = '<summary>Show data table</summary><table><tr>' + head.map(h => `<th>${h}</th>`).join('') + '</tr>' +
+    rows.map(r => '<tr>' + r.map(c => `<td>${c}</td>`).join('') + '</tr>').join('') + '</table>';
+  return d;
+}
+document.querySelectorAll('[data-chart]').forEach(host => {
+  const c = DATA[host.dataset.chart];
+  if (c.type === 'v'){
+    const max = Math.max(...c.rows.map(r => r[1]));
+    const bars = document.createElement('div'); bars.className = 'vbars';
+    const labs = document.createElement('div'); labs.className = 'vlabels';
+    c.rows.forEach(([k, v]) => {
+      const b = document.createElement('div'); b.className = 'vb';
+      b.innerHTML = `<span class="v">${v}</span><i style="height:${(v / max * 85).toFixed(1)}%"></i>`;
+      bindTip(b, `${k}: ${v} ${c.unit} (${(v / N * 100).toFixed(1)}%)`);
+      bars.appendChild(b);
+      labs.insertAdjacentHTML('beforeend', `<span>${k}</span>`);
+    });
+    host.append(bars, labs);
+    host.insertAdjacentHTML('beforeend', `<div class="axisnote">${c.axis}</div>`);
+    host.appendChild(table(c.rows.map(([k, v]) => [k, v, (v / N * 100).toFixed(1) + '%']), [c.axis, 'Count', '% of 54']));
+  } else {
+    const wrap = document.createElement('div'); wrap.className = 'hbars';
+    const max = c.pct ? 1 : (c.of || c.max || Math.max(...c.rows.map(r => r[1])));
+    c.rows.forEach(r => {
+      const [k, v, d] = r;
+      const frac = c.pct ? v / d : v / max;
+      const val = c.pct ? `${Math.round(v / d * 100)}%` : (c.of ? `${v}/${c.of}` : v);
+      const row = document.createElement('div'); row.className = 'hb';
+      row.innerHTML = `<span class="lab">${k}</span><span class="track"><span class="fill" style="display:block;width:${(frac * 100).toFixed(1)}%"></span></span><span class="val">${val}</span>`;
+      bindTip(row, c.pct ? `${k}: ${v} of ${d} records had more than one positive test` : (c.of ? `${k}: ticked on ${v} of ${c.of} forms` : `${k}: ${v} ${c.unit}`));
+      wrap.appendChild(row);
+    });
+    host.appendChild(wrap);
+    host.appendChild(table(c.rows.map(r => c.pct ? [r[0], `${r[1]} / ${r[2]}`, Math.round(r[1] / r[2] * 100) + '%'] : [r[0], r[1]]), c.pct ? ['Duration band', 'More than one test', '%'] : ['Category', 'Count']));
+  }
+});
+// ICT stacked bar
+const ict = [['P. vivax only',34,'var(--s1)'],['P. falciparum only',19,'var(--s2)'],['Both ticked',1,'var(--s3)']];
+const st = document.getElementById('ict');
+ict.forEach(([k, v, col]) => {
+  const d = document.createElement('div');
+  d.style.flex = v; d.style.background = col;
+  d.textContent = v >= 5 ? v : '';
+  bindTip(d, `${k}: ${v} of 54 (${(v / 54 * 100).toFixed(1)}%)`);
+  st.appendChild(d);
+});
+st.parentElement.appendChild(table(ict.map(([k, v]) => [k, v, (v / 54 * 100).toFixed(1) + '%']), ['ICT result', 'Count', '% of 54']));
+</script>
+</body>
+</html>

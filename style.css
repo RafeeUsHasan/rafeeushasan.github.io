@@ -240,3 +240,8 @@
 .work-card .go{margin-top:auto;font:500 14px Inter;color:var(--teal)}
 .explore a.wide{grid-column:1/-1}
 @media (max-width:900px){.lede-grid,.models,.steps,.two-note,.tables,.works{grid-template-columns:1fr}.domains{grid-template-columns:1fr 1fr}.rung{width:100%;min-width:0}}
+
+.work-card.wide-card{grid-column:1/-1}
+a.linkcard{display:block;text-decoration:none;color:inherit;transition:.2s}
+a.linkcard:hover{border-color:var(--teal);transform:translateY(-2px)}
+a.linkcard .go{display:inline-block;margin-top:10px;font:500 14px Inter;color:var(--teal)}
