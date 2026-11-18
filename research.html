@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research — Rafee Us Hasan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bar"><div class="wrap">
+  <a class="name" href="index.html">Rafee Us Hasan</a>
+  <button class="menu" onclick="document.getElementById('nav').classList.toggle('open')">Menu</button>
+  <nav id="nav"><a href="index.html">Home</a><a href="research.html" class="on">Research</a><a href="medicine.html">Medicine &amp; Service</a><a href="honors.html">Honors</a><a href="poetry.html">Poetry</a></nav>
+</div></div>
+<div class="wrap">
+  <header class="pagehead">
+    <p class="eyebrow">Research</p>
+    <h1>When several explanations fit, what tells them apart?</h1>
+    <p>Two projects in progress. One compares rival theories of early vision. The other detects slow physiological change after stress by comparing each person with their own past.</p>
+    <div class="jump"><a href="#vision">Theories of visual cortex</a><a href="#drift-study">Physiological drift</a><a href="#other">Other work</a><a href="#questions">Open questions</a></div>
+  </header>
+
+  <!-- ================= PROJECT 1 ================= -->
+  <section id="vision">
+    <div class="proj-head">
+      <div class="tag">Project 1 · Computational neuroscience <span class="wip">In progress</span></div>
+      <h2>Discriminating Theories of Visual Cortex by Their Prohibitions</h2>
+      <p class="sub-t">A prohibition-based method with a three-model implementation</p>
+    </div>
+
+    <div class="lede-grid">
+      <div>
+        <h3 class="mini-h">The problem</h3>
+        <p>Many different mechanisms can produce the same behaviour. In one small, fully characterised circuit, parameter sets differing by factors of two to twenty gave essentially the same network output (Prinz, Bucher &amp; Marder, 2004). So when a model fits neural data, that shows the model is <b>sufficient</b>, not that it is <b>actual</b>. A working model is an existence proof, not a confirmation.</p>
+        <h3 class="mini-h">The idea</h3>
+        <p>Compare theories by what each one <b>forbids</b>, not by what it predicts. A confirmed prediction is consistent with many alternatives, but one violated prohibition is enough to rule a theory out. This builds on the tradition of strong inference (Platt, 1964) and adds an explicit scale of evidential strength.</p>
+      </div>
+      <div class="figure">
+        <div class="seg" id="seg">
+          <button class="on" data-m="pc">Predictive coding</button>
+          <button data-m="aa">Apical amplification</button>
+        </div>
+        <svg viewBox="0 0 400 250" width="100%" role="img" aria-label="Predicted responses to expected vs unexpected stimuli">
+          <line x1="50" y1="210" x2="380" y2="210" stroke="#cfccc4"/>
+          <line x1="50" y1="20" x2="50" y2="210" stroke="#cfccc4"/>
+          <text x="18" y="115" font-size="11" fill="#677284" transform="rotate(-90 18 115)" text-anchor="middle">Predicted response</text>
+          <rect x="95" y="100" width="90" height="110" rx="4" fill="#9aa5b4"/>
+          <rect id="exp" x="245" y="155" width="90" height="55" rx="4" fill="#1f6f6b" style="transition:all .6s cubic-bezier(.2,.8,.2,1)"/>
+          <line x1="230" y1="100" x2="350" y2="100" stroke="#9aa5b4" stroke-dasharray="4 4"/>
+          <text x="140" y="230" font-size="12" fill="#333c48" text-anchor="middle">Unexpected</text>
+          <text x="290" y="230" font-size="12" fill="#333c48" text-anchor="middle">Expected</text>
+          <text id="lab" x="290" y="145" font-size="12" font-weight="600" fill="#1f6f6b" text-anchor="middle" style="transition:all .6s">suppressed</text>
+        </svg>
+        <div class="cap" id="cap"></div>
+      </div>
+    </div>
+
+    <h3 class="mini-h">A scale of evidential strength</h3>
+    <p class="note">Every result is classified by the level of evidence it reaches. A behavioural match is the weakest and says nothing about mechanism.</p>
+    <div class="ladder">
+      <div class="rung" style="--w:40%"><span class="lv">1</span><b>Behavioural match</b><em>weakest</em></div>
+      <div class="rung" style="--w:55%"><span class="lv">2</span><b>Match in internal representation</b></div>
+      <div class="rung" style="--w:70%"><span class="lv">3</span><b>Match in a named signature, feature by feature</b></div>
+      <div class="rung" style="--w:85%"><span class="lv">4</span><b>Effect of direct intervention on the mechanism</b></div>
+      <div class="rung strong" style="--w:100%"><span class="lv">5</span><b>Direct observation of a prohibited event</b><em>strongest</em></div>
+    </div>
+
+    <h3 class="mini-h">Three models, chosen to differ on what the theories dispute</h3>
+    <div class="models">
+      <div class="c"><div class="kick">Model A</div><h4>Sparse coding</h4><p>Dictionary learning on natural-image patches. Produces oriented, localised receptive fields with no hierarchy and no prediction.</p></div>
+      <div class="c"><div class="kick">Model B</div><h4>Feedforward feature detection</h4><p>A convolutional network that maps input to category, with no generative component.</p></div>
+      <div class="c"><div class="kick">Model C</div><h4>Predictive coding</h4><p>A network with explicit error units and reciprocal predictions, built with an existing software library.</p></div>
+    </div>
+
+    <h3 class="mini-h">Procedure</h3>
+    <ol class="steps">
+      <li><b>Narrow</b> the candidate mechanisms to those consistent with the data, using simulation and identifiability analysis.</li>
+      <li><b>Locate</b> where the surviving mechanisms diverge, by comparing their representations.</li>
+      <li><b>Resolve</b> the divergence by perturbation. Mechanisms that look the same under passive observation often separate under intervention.</li>
+    </ol>
+    <div class="two-note">
+      <div><h4>Model recovery first</h4><p>Before any comparison, synthetic data are generated from each model, all three models are fitted to each dataset, and the confusion matrix checks that the models can be told apart. Comparisons use encoding models with variance partitioning, crediting each model only with the variance it explains uniquely. The metric is fixed before fitting.</p></div>
+      <div><h4>Scope</h4><p>This phase is a comparison among models, not a test against the brain. It produces located, testable divergences and a first candidate discriminating experiment. Testing them against neural recordings (Allen Brain Observatory, OpenScope) is a later phase.</p></div>
+    </div>
+    <div class="ms"><b>Paper in preparation:</b> Hasan, R. U. <i>Discriminating Theories of Visual Cortex by Their Prohibitions: A Prohibition-Based Method with a Three-Model Implementation.</i></div>
+  </section>
+
+  <!-- ================= PROJECT 2 ================= -->
+  <section id="drift-study">
+    <div class="proj-head">
+      <div class="tag">Project 2 · Psychophysiology · RDoC <span class="wip">Planned · completion Jan 2027</span></div>
+      <h2>Detecting Gradual, Coordinated Physiological Drift</h2>
+      <p class="sub-t">Person-specific sequential monitoring: a pre-registered simulation study</p>
+    </div>
+
+    <div class="lede-grid">
+      <div>
+        <h3 class="mini-h">The problem</h3>
+        <p>After trauma, departures from physiological health may develop gradually and at the same time across several systems, such as autonomic arousal, sleep and threat reactivity, while no single measure crosses a clinical threshold. Conventional monitoring checks each measure separately, or checks all of them against population norms. Either way, it ignores the person's own trajectory.</p>
+        <h3 class="mini-h">The method</h3>
+        <p>A dynamic factor model with person-level intercepts and a Kalman filter predicts each person's multivariate state one day ahead. Daily <b>surprise</b> is the squared standardized prediction error, split into a <b>coordinated</b> part (movement along shared latent drivers) and a <b>decoupling</b> part (for example, physiological arousal without matching self-report). Evidence then accumulates over time in a cumulative-sum (CUSUM) chart.</p>
+        <div class="eq">D<sub>t</sub> = v<sub>t</sub><sup>⊤</sup>S<sub>t</sub><sup>−1</sup>v<sub>t</sub> = T²<sub>t</sub> + Q<sub>t</sub>, &nbsp; D<sub>t</sub> ~ χ²(k<sub>t</sub>) under the null</div>
+      </div>
+      <div class="figure">
+        <button class="replay" id="replay">↻ Replay</button>
+        <svg id="drift" viewBox="0 0 400 260" width="100%" role="img" aria-label="Schematic of coordinated drift detection"></svg>
+        <div class="cap"><b>Illustrative schematic, not results.</b> Threat, arousal and sleep indicators drift slowly from the dashed line. Each stays within its personal baseline band (grey), but evidence accumulated across all of them crosses the alarm threshold.</div>
+      </div>
+    </div>
+
+    <h3 class="mini-h">Simulation design</h3>
+    <p class="note">Each simulated person is observed for 84 days on twelve indicators across four RDoC domains, on realistic schedules: imaging and lab measures twice, questionnaires weekly, and wearables nightly with about 15% of nights missing.</p>
+    <div class="domains">
+      <div><b>Acute threat</b>Startle · skin conductance · amygdala reactivity · lab distress rating</div>
+      <div><b>Sustained threat</b>Diurnal cortisol slope · attentional bias toward threat</div>
+      <div><b>Arousal</b>Heart rate variability · resting heart rate · self-reported arousal</div>
+      <div><b>Sleep</b>Wake after sleep onset · total sleep time · insomnia severity</div>
+    </div>
+
+    <div class="tables">
+      <div>
+        <h4>Scenarios</h4>
+        <table>
+          <tr><td><b>S0</b> Null</td><td>Checks the false-alarm rate</td></tr>
+          <tr><td><b>S2</b> Coordinated step</td><td>+0.5 SD in all threat–arousal indicators from day 30; none individually anomalous</td></tr>
+          <tr><td><b>S3</b> Decoupling</td><td>Physiology rises, self-report unchanged</td></tr>
+          <tr><td><b>S4</b> Gradual drift <span class="pri">primary</span></td><td>Threat–arousal driver rises 0 → 0.5 SD between days 30 and 72</td></tr>
+        </table>
+      </div>
+      <div>
+        <h4>Methods compared</h4>
+        <table>
+          <tr><td><b>A</b></td><td>Univariate monitoring of each indicator, with multiplicity correction</td></tr>
+          <tr><td><b>B</b></td><td>Population-referenced Mahalanobis distance, without individual history</td></tr>
+          <tr><td><b>D</b> <span class="pri">proposed</span></td><td>Person-specific dynamic factor monitoring with surprise decomposition</td></tr>
+        </table>
+        <p class="note" style="margin-top:10px">All arms share the same CUSUM decision rule and are calibrated to the same 5% false-alarm rate on independent null simulations.</p>
+      </div>
+    </div>
+
+    <h3 class="mini-h">Pre-registered hypotheses</h3>
+    <div class="two-note">
+      <div><h4>H1 · Earlier detection</h4><p>Under gradual drift, the person-specific method detects at least <b>7 days earlier</b> (median) than the population-referenced method, with sensitivity no more than 0.02 lower. Both margins must exceed two Monte Carlo standard errors.</p></div>
+      <div><h4>H2 · Correct attribution</h4><p>At least 70% of detected decoupling cases are attributed to the decoupling component, and no more than 30% of coordinated-shift cases are wrongly attributed to it.</p></div>
+    </div>
+    <p class="note">Designed and reported under the ADEMP framework (Morris, White &amp; Crowther, 2019). The protocol will be registered on the Open Science Framework before any analysis. Planned outputs include a fully reproducible code repository and an illustrative individual-level alarm report.</p>
+    <div class="ms"><b>Paper in preparation:</b> Hasan, R. U. <i>Detecting Gradual, Coordinated Physiological Drift by Person-Specific Sequential Monitoring: A Pre-Registered Simulation Study.</i></div>
+  </section>
+
+  <!-- ================= OTHER ================= -->
+  <section id="other">
+    <div class="sec-head"><h2>Other work</h2></div>
+    <div class="mini">
+      <div class="c"><div class="kick">Theory · 2026</div><h4>Census of Brain Theories</h4><p>57 theories of brain function, organized by level of explanation, recording what each explains, claims and forbids.</p></div>
+      <div class="c"><div class="kick">Clinical data · 2022 – 2025</div><h4>Falciparum Malaria &amp; the Brain</h4><p>A patient dataset built during an active anti-malaria program in the Bandarban hills, to study the disease's effects on the brain.</p></div>
+      <div class="c"><div class="kick">Community study · 2015</div><h4>Risk Behaviors in Rural Adolescents</h4><p>Field study of risk behaviors and health problems among adolescents in Dhamrai, Dhaka.</p></div>
+    </div>
+  </section>
+
+  <section id="questions">
+    <div class="sec-head"><h2>Questions I keep coming back to</h2></div>
+    <div class="qs">
+      <div class="qrow">
+        <h4>How does visual cortex do inference, and which theory survives the experiments designed to break it?</h4>
+        <div><p>Take the divergences found among the models and test them against neural recordings, such as the Allen Brain Observatory and OpenScope.</p>
+        <div class="chips"><span>Predictive coding</span><span>Apical amplification</span><span>Model comparison</span></div></div>
+      </div>
+      <div class="qrow">
+        <h4>Why are representations of natural scenes efficient and sparse, and what are they efficient for?</h4>
+        <div><p>Connect normative coding principles to measured responses, asking where efficient coding and inference-based accounts come apart.</p>
+        <div class="chips"><span>Efficient coding</span><span>Sparse coding</span><span>Natural scene statistics</span></div></div>
+      </div>
+      <div class="qrow">
+        <h4>How do brain and body signals move together under stress, and can person-specific models catch transitions early?</h4>
+        <div><p>Move person-specific monitoring from simulation to longitudinal cohort data from trauma-exposed people.</p>
+        <div class="chips"><span>Stress</span><span>RDoC</span><span>Within-person modeling</span><span>Computational psychiatry</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="sec-head"><h2>Tools &amp; methods</h2></div>
+    <div class="skills">
+      <div><b>Tools</b>Python · dictionary learning · convolutional networks · predictive-coding networks · Kalman filtering · CUSUM</div>
+      <div><b>Methods</b>Model recovery &amp; identifiability · variance partitioning · Monte Carlo simulation (ADEMP) · pre-registration</div>
+      <div><b>Clinical &amp; field</b>Psychiatric case follow-up · emergency care · patient data collection · outbreak management</div>
+    </div>
+  </section>
+  <footer>© 2026 Rafee Us Hasan · Goleta, California · rafeeushasan@gmail.com</footer>
+</div>
+<script>
+// Figure 1: discriminating test
+(() => {
+  const exp = document.getElementById('exp'), lab = document.getElementById('lab'), cap = document.getElementById('cap');
+  const S = {
+    pc:{y:155,h:55,c:'#1f6f6b',t:'suppressed',cap:'<b>Predictive coding:</b> an expected input is explained away by top-down predictions, so the response is <b>suppressed</b> relative to an unexpected one.'},
+    aa:{y:40,h:170,c:'#c2543a',t:'enhanced',cap:'<b>Apical amplification:</b> top-down context amplifies matching input, so the response is <b>enhanced</b>. One experiment, opposite prohibitions.'}
+  };
+  function set(m){
+    const s = S[m];
+    exp.setAttribute('y', s.y); exp.setAttribute('height', s.h); exp.setAttribute('fill', s.c);
+    lab.setAttribute('y', s.y - 10); lab.setAttribute('fill', s.c); lab.textContent = s.t;
+    cap.innerHTML = s.cap + ' <span style="opacity:.7">(Schematic.)</span>';
+    document.querySelectorAll('#seg button').forEach(b => b.classList.toggle('on', b.dataset.m === m));
+  }
+  document.querySelectorAll('#seg button').forEach(b => b.onclick = () => set(b.dataset.m));
+  set('pc');
+})();
+
+// Figure 2: coordinated drift schematic
+(() => {
+  const svg = document.getElementById('drift'), NS = 'http://www.w3.org/2000/svg';
+  const N = 120, onset = 55, X0 = 58, X1 = 390;
+  const xs = i => X0 + (X1 - X0) * i / (N - 1);
+  let seed = 7; const rnd = () => (seed = (seed * 16807) % 2147483647) / 2147483647;
+  const gauss = () => { let u = 0; for (let k = 0; k < 6; k++) u += rnd(); return (u - 3) / 1.2; };
+  const rows = [{y:30,c:'#1f6f6b',n:'Threat'},{y:85,c:'#3b6ea5',n:'Arousal'},{y:140,c:'#8a5a9e',n:'Sleep'}];
+  const series = rows.map(() => { const a = []; for (let i = 0; i < N; i++){ const d = i > onset ? (i - onset) * 0.026 : 0; a.push(gauss() * 0.55 + d); } return a; });
+  // combined sequential statistic (CUSUM-like on mean)
+  const stat = []; let s = 0;
+  for (let i = 0; i < N; i++){ const m = (series[0][i] + series[1][i] + series[2][i]) / 3; s = Math.max(0, s + m - 0.25); stat.push(s); }
+  const thr = 6; const cross = stat.findIndex(v => v > thr);
+  const el = (t, a) => { const e = document.createElementNS(NS, t); for (const k in a) e.setAttribute(k, a[k]); return e; };
+  function draw(){
+    svg.innerHTML = '';
+    rows.forEach((r, j) => {
+      svg.appendChild(el('rect', {x:X0, y:r.y - 13, width:X1 - X0, height:26, fill:'#eeede8', rx:3}));
+      svg.appendChild(el('text', {x:X0 - 6, y:r.y + 4, 'font-size':10, fill:'#677284', 'text-anchor':'end'})).textContent = r.n.replace('Signal ','');
+      const pts = series[j].map((v, i) => `${xs(i).toFixed(1)},${(r.y - v * 6).toFixed(1)}`).join(' ');
+      svg.appendChild(el('polyline', {points:pts, fill:'none', stroke:r.c, 'stroke-width':1.5, class:'ln'}));
+    });
+    // stat panel
+    const top = 175, bot = 240, sc = (bot - top) / 10;
+    svg.appendChild(el('line', {x1:X0, y1:bot, x2:X1, y2:bot, stroke:'#cfccc4'}));
+    svg.appendChild(el('line', {x1:X0, y1:bot - thr * sc, x2:X1, y2:bot - thr * sc, stroke:'#c2543a', 'stroke-dasharray':'3 3'}));
+    svg.appendChild(el('text', {x:X1, y:bot - thr * sc - 5, 'font-size':10, fill:'#c2543a', 'text-anchor':'end'})).textContent = 'threshold';
+    svg.appendChild(el('text', {x:X0, y:top - 4, 'font-size':10, fill:'#677284'})).textContent = 'Cumulative evidence (CUSUM)';
+    const sp = stat.map((v, i) => `${xs(i).toFixed(1)},${(bot - Math.min(v, 10) * sc).toFixed(1)}`).join(' ');
+    svg.appendChild(el('polyline', {points:sp, fill:'none', stroke:'#18202b', 'stroke-width':1.8, class:'ln'}));
+    // onset
+    svg.appendChild(el('line', {x1:xs(onset), y1:12, x2:xs(onset), y2:bot, stroke:'#9aa5b4', 'stroke-dasharray':'4 4'}));
+    svg.appendChild(el('text', {x:xs(onset) + 4, y:12, 'font-size':10, fill:'#677284'})).textContent = 'drift begins';
+    if (cross > 0){
+      const c = el('circle', {cx:xs(cross), cy:bot - thr * sc, r:5, fill:'#c2543a', opacity:0, class:'det'});
+      svg.appendChild(c);
+      const t = el('text', {x:xs(cross) + 8, y:bot - thr * sc + 16, 'font-size':10, 'font-weight':600, fill:'#c2543a', opacity:0, class:'det'});
+      t.textContent = 'detected'; svg.appendChild(t);
+    }
+    // animate
+    svg.querySelectorAll('.ln').forEach(p => { const L = p.getTotalLength(); p.style.strokeDasharray = L; p.style.strokeDashoffset = L; p.getBoundingClientRect(); p.style.transition = 'stroke-dashoffset 2.4s ease-out'; p.style.strokeDashoffset = 0; });
+    svg.querySelectorAll('.det').forEach(d => { d.style.transition = 'opacity .4s 2.2s'; requestAnimationFrame(() => d.setAttribute('opacity', 1)); });
+  }
+  const io = new IntersectionObserver(es => { if (es[0].isIntersecting){ draw(); io.disconnect(); } }, {threshold:.3});
+  io.observe(svg);
+  document.getElementById('replay').onclick = draw;
+})();
+</script>
+</body>
+</html>
